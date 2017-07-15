@@ -2,16 +2,16 @@
 
 **index.js**
 
-lambda function for the bot
+_lambda function for the bot_
 
 
 **bot_definition.txt**
 
-bot definition
+_bot definition_
 
 
 **images folder**
 
-some screenshots for documentation
+_some screenshots for documentation_
 
 
