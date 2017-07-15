@@ -1,0 +1,217 @@
+{
+	"name": "JomPAYBot",
+	"description": null,
+	"intents": [
+		{
+			"intentName": "jompayPayBill",
+			"intentVersion": "22"
+		}
+	],
+	"clarificationPrompt": {
+		"messages": [
+			{
+				"contentType": "PlainText",
+				"content": "Sorry, I could not understand. Please repeat."
+			},
+			{
+				"contentType": "PlainText",
+				"content": "Sorry, can you please repeat that?"
+			}
+		],
+		"maxAttempts": 5,
+		"responseCard": null
+	},
+	"abortStatement": {
+		"messages": [
+			{
+				"contentType": "PlainText",
+				"content": "Sorry, I could not understand. Please contact customer service."
+			},
+			{
+				"contentType": "PlainText",
+				"content": "Sorry, I could not understand. Goodbye."
+			}
+		],
+		"responseCard": null
+	},
+	"status": "READY",
+	"failureReason": null,
+	"lastUpdatedDate": "2017-07-14T10:11:58.550Z",
+	"createdDate": "2017-07-14T10:11:35.673Z",
+	"idleSessionTTLInSeconds": 300,
+	"voiceId": "Salli",
+	"checksum": "22584863-8c73-4676-bd38-ae52165e6123",
+	"version": "4",
+	"locale": "en-US",
+	"childDirected": false,
+	"dependencies": {
+		"intents": [
+			{
+				"name": "jompayPayBill",
+				"description": null,
+				"slots": [
+					{
+						"name": "date",
+						"description": null,
+						"slotConstraint": "Required",
+						"slotType": "AMAZON.DATE",
+						"slotTypeVersion": null,
+						"valueElicitationPrompt": {
+							"messages": [
+								{
+									"contentType": "PlainText",
+									"content": "When do you want to pay?"
+								}
+							],
+							"maxAttempts": 2,
+							"responseCard": null
+						},
+						"priority": 3,
+						"sampleUtterances": [],
+						"responseCard": null
+					},
+					{
+						"name": "amount",
+						"description": null,
+						"slotConstraint": "Required",
+						"slotType": "AMAZON.NUMBER",
+						"slotTypeVersion": null,
+						"valueElicitationPrompt": {
+							"messages": [
+								{
+									"contentType": "PlainText",
+									"content": "How much you want to pay? Only whole number will be accepted."
+								},
+								{
+									"contentType": "PlainText",
+									"content": "How much is the amount? Only whole number will be accepted."
+								}
+							],
+							"maxAttempts": 2,
+							"responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\"}"
+						},
+						"priority": 2,
+						"sampleUtterances": [],
+						"responseCard": null
+					},
+					{
+						"name": "name",
+						"description": null,
+						"slotConstraint": "Required",
+						"slotType": "jompayBillerName",
+						"slotTypeVersion": "3",
+						"valueElicitationPrompt": {
+							"messages": [
+								{
+									"contentType": "PlainText",
+									"content": "What is the biller's name?"
+								}
+							],
+							"maxAttempts": 2,
+							"responseCard": null
+						},
+						"priority": 1,
+						"sampleUtterances": [],
+						"responseCard": null
+					}
+				],
+				"sampleUtterances": [
+					"Hi",
+					"Hello JomPAY Bot.",
+					"I would like to pay {name} {date}",
+					"I would like to pay {name}",
+					"I would like to pay {name} {amount} {date}",
+					"I would like to make a payment",
+					"I would like to make a payment please",
+					"amount is {amount}",
+					"the amount is {amount}",
+					"pay {amount}",
+					"I would like to pay {amount} to {name} {date}",
+					"I would like to pay {amount} {name} {date}",
+					"I want to pay {name} {date}",
+					"I want to pay {name}",
+					"I want to pay {name} {amount} {date}",
+					"I want to make a payment",
+					"I want to make a payment please"
+				],
+				"confirmationPrompt": {
+					"messages": [
+						{
+							"contentType": "PlainText",
+							"content": "You'd like to pay {name} Ringgit Malaysia {amount} on {date}. Is that right?"
+						}
+					],
+					"maxAttempts": 3,
+					"responseCard": null
+				},
+				"rejectionStatement": {
+					"messages": [
+						{
+							"contentType": "PlainText",
+							"content": "Okay. Nothing to pay this time. See you next time!"
+						}
+					],
+					"responseCard": null
+				},
+				"conclusionStatement": {
+					"messages": [
+						{
+							"contentType": "PlainText",
+							"content": "Thank you!"
+						}
+					],
+					"responseCard": null
+				},
+				"dialogCodeHook": {
+					"uri": "arn:aws:lambda:us-east-1:113774485464:function:jomPAYLogic",
+					"messageVersion": "1.0"
+				},
+				"fulfillmentActivity": {
+					"type": "CodeHook",
+					"codeHook": {
+						"uri": "arn:aws:lambda:us-east-1:113774485464:function:jomPAYLogic",
+						"messageVersion": "1.0"
+					}
+				},
+				"parentIntentSignature": null,
+				"lastUpdatedDate": "2017-07-14T10:08:11.086Z",
+				"createdDate": "2017-07-14T10:08:11.086Z",
+				"version": "22",
+				"checksum": "e7df3430-c540-4974-8fa2-b66805a46f7f"
+			}
+		],
+		"slotTypes": [
+			{
+				"name": "jompayBillerName",
+				"description": "Available biller names",
+				"enumerationValues": [
+					{
+						"value": "CELCOM"
+					},
+					{
+						"value": "MAXIS"
+					},
+					{
+						"value": "TMNET"
+					},
+					{
+						"value": "TNB"
+					},
+					{
+						"value": "TENAGA"
+					},
+					{
+						"value": "AIRASIA"
+					},
+					{
+						"value": "SYABAS"
+					}
+				],
+				"lastUpdatedDate": "2017-07-13T09:10:39.061Z",
+				"createdDate": "2017-07-13T09:10:39.061Z",
+				"version": "3",
+				"checksum": null
+			}
+		]
+	}
+}
