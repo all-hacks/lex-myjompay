@@ -2,6 +2,8 @@
 
 **index.js**
 
+**help.js**
+
 _lambda function for the bot_
 
 

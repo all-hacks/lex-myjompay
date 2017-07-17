@@ -4,7 +4,11 @@
 	"intents": [
 		{
 			"intentName": "jompayPayBill",
-			"intentVersion": "22"
+			"intentVersion": "23"
+		},
+		{
+			"intentName": "jompayHelp",
+			"intentVersion": "2"
 		}
 	],
 	"clarificationPrompt": {
@@ -18,7 +22,7 @@
 				"content": "Sorry, can you please repeat that?"
 			}
 		],
-		"maxAttempts": 5,
+		"maxAttempts": 3,
 		"responseCard": null
 	},
 	"abortStatement": {
@@ -36,16 +40,38 @@
 	},
 	"status": "READY",
 	"failureReason": null,
-	"lastUpdatedDate": "2017-07-14T10:11:58.550Z",
-	"createdDate": "2017-07-14T10:11:35.673Z",
+	"lastUpdatedDate": "2017-07-17T01:44:44.904Z",
+	"createdDate": "2017-07-17T01:44:22.706Z",
 	"idleSessionTTLInSeconds": 300,
 	"voiceId": "Salli",
-	"checksum": "22584863-8c73-4676-bd38-ae52165e6123",
-	"version": "4",
+	"checksum": "7d5bf96a-e57a-4366-8cd9-1d166ae132f4",
+	"version": "6",
 	"locale": "en-US",
 	"childDirected": false,
 	"dependencies": {
 		"intents": [
+			{
+				"name": "jompayHelp",
+				"description": null,
+				"slots": [],
+				"sampleUtterances": [
+					"Help",
+					"Help me",
+					"Can anyone help"
+				],
+				"fulfillmentActivity": {
+					"type": "CodeHook",
+					"codeHook": {
+						"uri": "arn:aws:lambda:us-east-1:113774485464:function:jompayHelp",
+						"messageVersion": "1.0"
+					}
+				},
+				"parentIntentSignature": null,
+				"lastUpdatedDate": "2017-07-16T04:21:46.370Z",
+				"createdDate": "2017-07-16T04:21:46.370Z",
+				"version": "2",
+				"checksum": "834496d0-d819-465a-bebf-92cae5f9e883"
+			},
 			{
 				"name": "jompayPayBill",
 				"description": null,
@@ -117,7 +143,7 @@
 				],
 				"sampleUtterances": [
 					"Hi",
-					"Hello JomPAY Bot.",
+					"Hello JomPAY Bot",
 					"I would like to pay {name} {date}",
 					"I would like to pay {name}",
 					"I would like to pay {name} {amount} {date}",
@@ -132,7 +158,11 @@
 					"I want to pay {name}",
 					"I want to pay {name} {amount} {date}",
 					"I want to make a payment",
-					"I want to make a payment please"
+					"I want to make a payment please",
+					"Hello",
+					"Halo",
+					"Start over",
+					"Restart"
 				],
 				"confirmationPrompt": {
 					"messages": [
@@ -174,10 +204,10 @@
 					}
 				},
 				"parentIntentSignature": null,
-				"lastUpdatedDate": "2017-07-14T10:08:11.086Z",
-				"createdDate": "2017-07-14T10:08:11.086Z",
-				"version": "22",
-				"checksum": "e7df3430-c540-4974-8fa2-b66805a46f7f"
+				"lastUpdatedDate": "2017-07-16T04:46:33.093Z",
+				"createdDate": "2017-07-16T04:46:33.093Z",
+				"version": "23",
+				"checksum": "091109c9-1c7a-45b4-95e5-a59f94456829"
 			}
 		],
 		"slotTypes": [
